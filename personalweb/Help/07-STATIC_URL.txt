@@ -1,0 +1,41 @@
+# Static files (CSS, JavaScript, Images)
+baraye inke betavan az in file haye static dar html estefade konim, bayad b raveshe zir eghdam konim:
+dar urls (root): b in do dastur niaz darim:
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns +=staticfiles_urlpatterns()
+------------------------------------------
+from django.contrib import admin
+from django.urls import path, include
+from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('about/', views.about),
+    path('', views.home),
+    path('articles/', include('articles.urls')),
+]
+
+urlpatterns +=staticfiles_urlpatterns()
+------------------------------------------
+dar settings.py bayad resource file ha ro moshakhas konim:
+import os
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'assets'),
+)
+
+ghadame badi ijade yek pooshe ba name entekhab shode ast. assets
+dar in pooshe yek file css ijad mikonim, in file az in link ghabele dastrasi ast:
+http://127.0.0.1:8000/static/styles.css
+
+hala Django mitavanad b file haye static dastrasi dashte bashad
+
+
+baraye dastrasi b in file css dar html 2 rah vojood darad:
+1. Hard Coding :
+        <link rel="stylesheet" href="/static/styles.css">
+2. kharej az tage HTML:
+    {% load static %}
+    va ba estefade az link:
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+

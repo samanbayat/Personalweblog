@@ -1,0 +1,16 @@
+az linke zir mitan b page admin resid: http://127.0.0.1:8000/admin
+bayad yek superuser ijad konim: python manage.py createsuperuser
+hala mitavan dar admin page login konim!
+user:adminweblog
+pass:S734S
+
+Model ha bayad dar in page register beshavand. banabarin aval lazem ast k in model dar admin.py import va register shavad
+admin.py :
+from django.contrib import admin
+from .models import Article
+
+admin.site.register(Article)
+
+hala mitavan article haye jadid ra ezafe kard. Hal motevajeh mishavim k esme article ha anche k dar title type shode nist. va
+be soorate Objecte shomaregozari shode neshan dade mishavad. baraye inke title neshan dade shavad bayad az yek function estefade
+konim dar models.py

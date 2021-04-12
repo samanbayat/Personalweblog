@@ -1,0 +1,41 @@
+agar body yek article toolani bashad, manteghi nist k kole body namayesh dade shavad.
+baraye inke faghat 50 ta charektere avale yek body namayesh dade shavad bayad az khasiate reshte boodane an
+estefade konim, yani dar models.py :
+from django.db import models
+
+class Article(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField()
+    body = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    # in add thumbnail
+    # add in author
+    # check this for more info: https://docs.djangoproject.com/en/3.2/ref/models/fields/
+
+    def __str__(self):
+        return self.title
+
+    def snippet(self):
+        return self.body[:50]+ ' ...'
+
+va hala dar HTMl:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articles List</title>
+</head>
+<body>
+    <h1>Articles List</h1>
+    <p>Choose your Article</p>
+
+    {% for article in articles %}
+    <h2>
+        <a href="#">{{article.title}}</a>
+        <p>{{article.snippet}}</p>
+        <p>{{article.date}}</p>
+    </h2>
+    {% endfor %}
+
+</body>
+</html>

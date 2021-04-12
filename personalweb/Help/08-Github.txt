@@ -1,0 +1,8 @@
+Download git from : https://git-scm.com/
+in cmd: --> git
+hala login dar github
+create new repository
+
+
+download a git client:
+https://www.syntevo.com/smartgit/

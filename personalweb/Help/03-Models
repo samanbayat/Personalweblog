@@ -1,0 +1,26 @@
+har model b yek Table dar Database map mishavad.
+baraye tarife an az class estefade mikonim b shekle zir:
+from django.db import models
+class Article(models.Model):
+    title = models.CharField()
+    slug = models.
+    body
+    date
+    # in add thumbnail
+    # add in author
+
+check this for more info: https://docs.djangoproject.com/en/3.2/ref/models/fields/
+
+ghadame badi sabte Model dar Database mibashad:
+TAVAJOH: vaghti k server run bashad shoma dar soorati ke hanuz migrate nakarde bashid in peigham ra mibinid:
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s):
+admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+dar pooshe roote Proje, jaiee k file manage.py hastesh:
+python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
+
+
+open sqlite database tables in : https://sqliteonline.com/

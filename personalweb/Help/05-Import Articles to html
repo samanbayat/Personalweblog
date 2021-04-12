@@ -1,0 +1,16 @@
+dar inja mikhahim data haie k tavasote page admin ijad shode ra dar yek page html import konim.
+Yani Anche k dar models.py hast, yekbar b views.py import mishavad, dar views.py ma yek page html ra render kardeieim az ghabl.
+
+Nokte: baraye anke betavan objectahye ijad shode ro dar HTML estefade konim 2 kar lazem ast:
+1. rikhtan hameye object ha dar yek moteghayer
+        articles = models.Article.objects.all().order_by('date')
+2. ezafe kardane yek argument be render baraye anke dar html ghabele import beshvad
+        return render(request,'articles/articleslist.html',{'articles':articles})
+views.py :
+from . import models
+
+def articles_list(request):
+    articles = models.Article.objects.all().order_by('date')
+    return render(request,'articles/articleslist.html',{'articles':articles})
+
+hala dar page HTML ba estefade az tag haye templates mitavanim in object ha ra bekhanim

@@ -1,0 +1,37 @@
+ba dasture : python manage.py startapp articles
+mitavan yek appe jadid sakht, ghadame badi ezafe kardane in app dar settings hastesh:
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'articles',
+
+ghadame badi sakhtane yek urls jadid dar appe jadid mibashad, va dar nahayat bayad in urls jadid b urls root include shavad:
+dar urls root:
+from django.urls import path, include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('about/', views.about),
+    path('', views.home),
+    path('articles/', include('articles.urls')),
+    #path('esme page jadid/', include('esmeapp.urls')),
+]
+
+dar urls appe jadid bayad yek masire jadid besazim:
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.articles_list),
+]
+
+dar inja niaz darim k yek template jadid va yek html jadid besazim. Dar haman foldere appe jadid(articles) yek folder
+b esme 'templates' ijad mikonim. TAVAJOH: az anja k momken ast ma bish az yek app dashte bashim, behtar ast k darune har
+folder e templates yek folder be esme haman app besazim, ta gij nashavim. hala dar in folder(articles) file html ra misazim.
+in file dar urls appe articles refrence dade shode ast.
+Faramosh nashe k bayad dar views dar appe article in html farakhani shavad: (har urls --> yek view)
+from django.shortcuts import render
+def articles_list(request):
+    return render(request,'articles/articleslist.html')

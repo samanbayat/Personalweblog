@@ -1,0 +1,16 @@
+1.agar bekhahim baraye app yek page jadid ijad konim, bayad in page dar views b surate function tarif beshe.
+    from django.shortcuts import HttpResponse
+def about(request):
+    # return HttpResponse('Hi There. About Page')
+
+
+2. Agar bekhahim k yek url yek page html ra call konad, 2kar lazem ast:
+    a. from django.shortcuts import render ----
+    def about(request):
+    # return HttpResponse('Hi There. About Page')
+    return render(request, 'About.html')
+
+    b.bayad yek foldere jadid dar app ijad konim va esme anra
+    'templates' bezarim. ghadame badi add kardane in folder dar settings dar tabe templates hastesh.
+    ghesmate DIRS:
+    'DIRS': ['templates'],
